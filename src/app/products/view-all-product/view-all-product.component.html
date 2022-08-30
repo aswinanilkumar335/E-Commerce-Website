@@ -1,0 +1,80 @@
+<!-- Category bar -->
+<div class="card-top container-fluid">
+    <div class="container d-flex mt-5">
+        <div class="ms-5">
+            <a (click)="filter('')">
+                <img src="https://i.postimg.cc/GpDhFdYS/f15c02bfeb02d15d.webp">
+                <h6 style="text-align: center;" class="mt-1">All products</h6>
+            </a>
+        </div>
+        <div class="ms-5">
+            <a (click)="filter('1')">
+                <img src="https://i.postimg.cc/KY9S3Wps/69c6589653afdb9a.webp">
+                <h6 style="text-align: center;" class="mt-1">Electronics</h6>
+            </a>
+        </div>
+        <div class="ms-5">
+            <a (click)="filter('2')">
+                <img src="https://i.postimg.cc/YSLfQGdK/c12afc017e6f24cb.webp">
+                <h6 style="text-align: center;" class="mt-1">Fashion</h6>
+            </a>
+        </div>
+        <div class="ms-5">
+            <a (click)="filter('3')">
+                <img style="width: 100px;" src="https://i.postimg.cc/4yy3ht1p/cjds0111-candy-jewellers-original-imafgdq7kkxekjdy.webp">
+                <h6 style="text-align: center;" class="mt-1">Jwellery</h6>
+            </a>
+        </div>
+        <div class="ms-5">
+            <a (click)="filter('4')">
+                <img style="width: 100px; height: 125px;" src="https://i.postimg.cc/jjJRqRyH/grocery.webp">
+                <h6 style="text-align: center;" class="mt-1">Grocery</h6>
+            </a>
+        </div>
+        <div class="ms-5">
+            <a (click)="filter('5')">
+                <img style="width: 100px; height: 125px;" src="https://i.postimg.cc/NMkqLFFH/appliances.webp">
+                <h6 style="text-align: center;" class="mt-1">Appliances</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Header-->
+<header class="bg-primary py-5 mt-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Shop in style</h1>
+            <!-- <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p> -->
+        </div>
+    </div>
+</header>
+
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            <div *ngFor="let products of filterCategory | filter:searchKey:'productName'" class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" style="height: 75%;" src="{{products.productImg}}" alt="..."/>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{products.productName}}</h5>
+                            <!-- Product price-->
+                            {{products.price}} Rs.
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-primary mt-auto" 
+                            href="products/view-product/{{products.id}}">View Product</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
